@@ -7,14 +7,13 @@ import {
   updateProfile
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { BG_IMG, USER_ICON } from "../utils/constants";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
   const [errMsg, setErrMsg] = useState(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const email = useRef(null);
@@ -45,7 +44,7 @@ const Login = () => {
           // updating Authentication API
           updateProfile(user, {
             displayName: fullname.current.value,
-            photoURL: "https://avatars.githubusercontent.com/u/83201223?v=4"
+            photoURL: USER_ICON
           })
             .then(() => {
               // dispatching here itself so that the name and photo url will be updated in the store and of the auth.currentUser(the user who is signed up)
@@ -58,13 +57,12 @@ const Login = () => {
                   photoURL: photoURL
                 })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               setErrMsg(error.message);
             });
           //upto here update and below is the continuotion.
-          console.log(user);
+          //console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -80,8 +78,7 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
-          navigate("/browse");
+          //console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -97,7 +94,7 @@ const Login = () => {
       <div className="absolute">
         <img
           className="top-0 left-0 w-screen h-screen object-cover z-0"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/85ff76db-39e5-423a-afbc-97d3e74db71b/null/US-en-20240909-TRIFECTA-perspective_e4cccf9e-e51c-4a90-af6d-001c59af27e7_small.jpg"
+          src={BG_IMG}
           alt="background-img"
         />
       </div>
