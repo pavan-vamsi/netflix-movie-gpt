@@ -8,7 +8,7 @@ const MainContainer = () => {
   if (!movies) return;
 
   // we have 20 movies in the movies, but we only need one main movie. Assuming the 1st movie.
-  const mainMovie = movies[0];
+  const mainMovie = movies[2];
   //console.log(mainMovie);
 
   const { original_title, overview, id } = mainMovie;

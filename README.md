@@ -28,7 +28,12 @@
 - Fetch data for Trailer Video
 - Updated Store with Trailer Video Data
   - Embeded the YT video, & made it autoplay, mute
-  - Tailwind to llok Main Container look Awesome.
+  - Tailwind to llok Main Container look Awesome
+- Build Secondary Conatiner with Movie List
+  - Build MovieCard and MovieList
+  - Found TMDb Image CDN URL
+  - Added list by fetching 5 API's by creating Custom Hooks
+  - Made The Browse Page UI Good
 
 # Features we're going to build
 
