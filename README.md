@@ -34,6 +34,9 @@
   - Found TMDb Image CDN URL
   - Added list by fetching 5 API's by creating Custom Hooks
   - Made The Browse Page UI Good
+- GPT Search Page & Search Bar
+- Added multi-language feature for GPT Search Page
+-
 
 # Features we're going to build
 
