@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 import { addOnTheAir } from "../utils/movieSlice";
 import { API_OPTIONS } from "../utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const useOnTheAir = () => {
   const dispatch = useDispatch();
+
+  const onTheAir = useSelector((store) => store.movies.onTheAir);
 
   const getOnTheAir = async () => {
     const data = await fetch(
@@ -17,7 +19,7 @@ const useOnTheAir = () => {
   };
 
   useEffect(() => {
-    getOnTheAir();
+    !onTheAir && getOnTheAir();
   }, []);
 };
 

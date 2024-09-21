@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO, SUPPORTED_LANGUAGES } from "../utils/constants";
-import { toggleGptSerachView } from "../utils/gptSlice";
+import { clearGptMovieResult, toggleGptSerachView } from "../utils/gptSlice";
 import { changeLanguage } from "../utils/configSlice";
 
 const Header = () => {
@@ -50,6 +50,8 @@ const Header = () => {
   }, []);
 
   const handleGptSearchClick = () => {
+    // Clearing the movies from store before toggling the View
+    dispatch(clearGptMovieResult());
     //Toggle GPT Search
     dispatch(toggleGptSerachView());
   };

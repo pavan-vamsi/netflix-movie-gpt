@@ -36,7 +36,15 @@
   - Made The Browse Page UI Good
 - GPT Search Page & Search Bar
 - Added multi-language feature for GPT Search Page
--
+- Get Open AI API Key
+- Get Search API call
+- fetched gptMoviesSuggestions from TMDB
+- created gptSlice added data
+- Resused Movie List component to make movie suggestion container
+- Memoization
+- Added .env file
+- Adding .env file to gitignore
+- Made our Site Responsive
 
 # Features we're going to build
 

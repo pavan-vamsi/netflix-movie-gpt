@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 import { addAiringToday } from "../utils/movieSlice";
 import { API_OPTIONS } from "../utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const useAiringToday = () => {
   const dispatch = useDispatch();
+
+  const airingToday = useSelector((store) => store.movies.airingToday);
 
   const getAiringToday = async () => {
     const data = await fetch(
@@ -17,7 +19,7 @@ const useAiringToday = () => {
   };
 
   useEffect(() => {
-    getAiringToday();
+    !airingToday && getAiringToday();
   }, []);
 };
 
